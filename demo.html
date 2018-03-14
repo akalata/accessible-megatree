@@ -1,11 +1,23 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Accessible Megatree demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="Accessible-Mega-Menu/css/main.css">
+    <link rel="stylesheet" type="text/css" href="Accessible-Mega-Menu/css/megamenu.css">
+    <script src="Accessible-Mega-Menu/js/jquery-accessibleMegaMenu.js"></script>
+    <script src="Accessible-Mega-Menu/js/main.js"></script>
 </head>
 
 <body>
 <header>
-    <div role="menubar">
+    <div role="menubar" class="megamenu">
         <ul role="menu">
             <li role="menu-item">
                 <a href="http://google.com/?q=parent1">Parent 1</a>
@@ -106,7 +118,7 @@
         </ul>
         <ul role="menu">
             <li role="menu-item">
-                <a href="http://google.com/?q=parent3">Parent 1</a>
+                <a href="http://google.com/?q=parent3">Parent 3</a>
                 <ul>
                     <li role="menu-item">
                         <a href="http://google.com/?q=child1">Child 1</a>
