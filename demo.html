@@ -1,105 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Accessible Megatree demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/megamenu.css">
+    <script src="js/jquery-accessibleMegaMenu.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body>
 <header>
-    <div role="menubar">
-        <ul role="menu">
-            <li role="menu-item">
-                <a href="http://google.com/?q=parent1">Parent 1</a>
-                <ul>
-                    <li role="menu-item">
-                        <a href="http://google.com/?q=child1">Child 1</a>
+    <nav>
+    <div role="menubar" class="megamenu accessible-megamenu theme-adobe">
+        <h2 id="mega-tree-title" class="element-invisible">Mega Tree Navigation</h2>
+        <ul role="menu" aria-labelledby="mega-tree-title">
+            <li role="presentation" class="accessible-megamenu-top-nav-item">
+                <a role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=parent1">Parent 1</a>
+                <ul class="accessible-megamenu-panel">
+                    <li role="presentation" >
+                        <a  role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
                         <ul>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild1">Subchild 1</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild2">Subchild 2</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild3">Subchild 3</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
-                    <li role="menu-item">
-                        <a href="http://google.com/?q=child2">Child 2</a>
+                    <li role="presentation" >
+                        <a role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
                         <ul>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild1">Subchild 1</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild2">Subchild 2</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild3">Subchild 3</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
-                    <li role="menu-item">
-                        <a href="http://google.com/?q=child3">Child 3</a>
+                    <li role="presentation" >
+                        <a role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
                         <ul>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild1">Subchild 1</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild2">Subchild 2</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild3">Subchild 3</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <ul role="menu">
-            <li role="menu-item">
-                <a href="http://google.com/?q=parent2">Parent 2</a>
-                <ul>
-                    <li role="menu-item">
-                        <a href="http://google.com/?q=child1">Child 1</a>
-                        <ul>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild1">Subchild 1</a>
-                            </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild2">Subchild 2</a>
-                            </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild3">Subchild 3</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li role="menu-item">
-                        <a href="http://google.com/?q=child2">Child 2</a>
-                        <ul>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild1">Subchild 1</a>
-                            </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild2">Subchild 2</a>
-                            </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild3">Subchild 3</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li role="menu-item">
-                        <a href="http://google.com/?q=child3">Child 3</a>
-                        <ul>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild1">Subchild 1</a>
-                            </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild2">Subchild 2</a>
-                            </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild3">Subchild 3</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
@@ -107,48 +70,97 @@
             </li>
         </ul>
         <ul role="menu">
-            <li role="menu-item">
-                <a href="http://google.com/?q=parent3">Parent 3</a>
-                <ul>
-                    <li role="menu-item">
-                        <a href="http://google.com/?q=child1">Child 1</a>
+            <li role="presentation" class="accessible-megamenu-top-nav-item">
+                <a role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=parent2">Parent 2</a>
+                <ul class="accessible-megamenu-panel">
+                    <li role="presentation" >
+                        <a role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
                         <ul>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild1">Subchild 1</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild2">Subchild 2</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild3">Subchild 3</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
-                    <li role="menu-item">
-                        <a href="http://google.com/?q=child2">Child 2</a>
+                    <li role="presentation" >
+                        <a role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
                         <ul>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild1">Subchild 1</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild2">Subchild 2</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild3">Subchild 3</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
-                    <li role="menu-item">
-                        <a href="http://google.com/?q=child3">Child 3</a>
+                    <li role="presentation">
+                        <a role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
                         <ul>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild1">Subchild 1</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild2">Subchild 2</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
-                            <li role="menu-item">
-                                <a href="http://google.com/?q=subchild3">Subchild 3</a>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul role="menu">
+            <li role="presentation" class="accessible-megamenu-top-nav-item">
+                <a role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=parent3">Parent 3</a>
+                <ul class="accessible-megamenu-panel">
+                    <li role="presentation" >
+                        <a role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
+                        <ul>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li role="presentation" >
+                        <a role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
+                        <ul>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li role="presentation" >
+                        <a role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
+                        <ul>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
@@ -156,12 +168,15 @@
             </li>
         </ul>
     </div>
+    </nav>
 </header>
 <main>
     <p>Main content.</p>
+    <p>Javascript heavily influenced by <a href="https://adobe-accessibility.github.io/Accessible-Mega-Menu/">Adobe's Accessible Mega Menu</a>.</p>
 </main>
 <footer>
     <p>Footer content.</p>
+    <p>0.0.1 - Alpha version.</p>
 </footer>
 </body>
 </html>
