@@ -152,40 +152,23 @@ limitations under the License.
                     if ((event.type === 'mouseout' || event.type === 'focusout') && topli.has(document.activeElement).length > 0) {
                         return;
                     }
-                    topli.find('[aria-expanded]')
-                        .attr('aria-expanded', 'false')
-                        .removeClass(settings.openClass)
-                        .filter('.' + settings.panelClass)
-                        .attr('aria-hidden', 'true');
+                    topli.removeClass(settings.openClass);
                     if ((event.type === 'keydown' && event.keyCode === Keyboard.ESCAPE) || event.type === 'DOMAttrModified') {
                         newfocus = topli.find(':tabbable:first');
                         setTimeout(function () {
-                            menu.find('[aria-expanded].' + that.settings.panelClass).off('DOMAttrModified.accessible-megamenu');
                             newfocus.focus();
                             that.justFocused = false;
                         }, 99);
                     }
                 } else if (topli.length === 0) {
-                    menu.find('[aria-expanded=true]')
-                        .attr('aria-expanded', 'false')
-                        .removeClass(settings.openClass)
-                        .filter('.' + settings.panelClass)
-                        .attr('aria-hidden', 'true');
+                    menu.find('.' + settings.openClass).removeClass(settings.openClass);
                 }
             } else {
                 clearTimeout(that.focusTimeoutID);
                 topli.parent('ul').siblings().find('li')
-                    //.find('[aria-expanded]')
-                    //.attr('aria-expanded', 'false')
                     .removeClass(settings.openClass)
-                    //.filter('.' + settings.panelClass)
-                    //.attr('aria-hidden', 'true');
                 topli
-                    //.find('[aria-expanded]')
-                    //.attr('aria-expanded', 'true')
-                    .addClass(settings.openClass)
-                    //.filter('.' + settings.panelClass)
-                    //.attr('aria-hidden', 'false');
+                    .addClass(settings.openClass);
                 if (event.type === 'mouseover' && target.is(':tabbable') && topli.length === 1 && panel.length === 0 && menu.has(document.activeElement).length > 0) {
                     target.focus();
                     that.justFocused = false;
