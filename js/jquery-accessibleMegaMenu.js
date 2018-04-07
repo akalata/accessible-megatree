@@ -48,11 +48,10 @@ limitations under the License.
     "use strict";
     var pluginName = "accessibleMegaMenu",
         defaults = {
-            uuidPrefix: "accessible-megamenu", // unique ID's are required to indicate aria-owns, aria-controls and aria-labelledby
-            menuClass: "accessible-megamenu", // default css class used to define the megamenu styling
+            // TODO: prefix js- classes
             topNavItemClass: "accessible-megamenu-top-nav-item", // default css class for a top-level navigation item in the megamenu
             panelClass: "accessible-megamenu-panel", // default css class for a megamenu panel
-            //panelGroupClass: "accessible-megamenu-panel-group", // default css class for a group of items within a megamenu panel
+            panelGroupClass: "accessible-megamenu-panel-group", // default css class for a group of items within a megamenu panel
             hoverClass: "hover", // default css class for the hover state
             focusClass: "focus", // default css class for the focus state
             openClass: "open", // default css class for the open state
@@ -60,79 +59,16 @@ limitations under the License.
             closeDelay: 250 // default open delay when opening menu via mouseover
         },
         Keyboard = {
-            BACKSPACE: 8,
-            COMMA: 188,
-            DELETE: 46,
             DOWN: 40,
-            END: 35,
-            ENTER: 13,
             ESCAPE: 27,
-            HOME: 36,
             LEFT: 37,
-            PAGE_DOWN: 34,
-            PAGE_UP: 33,
-            PERIOD: 190,
             RIGHT: 39,
-            SPACE: 32,
-            TAB: 9,
             UP: 38,
-            keyMap: {
-                48: "0",
-                49: "1",
-                50: "2",
-                51: "3",
-                52: "4",
-                53: "5",
-                54: "6",
-                55: "7",
-                56: "8",
-                57: "9",
-                59: ";",
-                65: "a",
-                66: "b",
-                67: "c",
-                68: "d",
-                69: "e",
-                70: "f",
-                71: "g",
-                72: "h",
-                73: "i",
-                74: "j",
-                75: "k",
-                76: "l",
-                77: "m",
-                78: "n",
-                79: "o",
-                80: "p",
-                81: "q",
-                82: "r",
-                83: "s",
-                84: "t",
-                85: "u",
-                86: "v",
-                87: "w",
-                88: "x",
-                89: "y",
-                90: "z",
-                96: "0",
-                97: "1",
-                98: "2",
-                99: "3",
-                100: "4",
-                101: "5",
-                102: "6",
-                103: "7",
-                104: "8",
-                105: "9",
-                190: "."
-            }
         };
     /**
      * @desc Creates a new accessible mega menu instance.
      * @param {jquery} element
      * @param {object} [options] Mega Menu options
-     * @param {string} [options.uuidPrefix=accessible-megamenu] - Prefix for generated unique id attributes, which are required to indicate aria-owns, aria-controls and aria-labelledby
-     * @param {string} [options.menuClass=accessible-megamenu] - CSS class used to define the megamenu styling
      * @param {string} [options.topNavItemClass=accessible-megamenu-top-nav-item] - CSS class for a top-level navigation item in the megamenu
      * @param {string} [options.panelClass=accessible-megamenu-panel] - CSS class for a megamenu panel
      * @param {string} [options.panelGroupClass=accessible-megamenu-panel-group] - CSS class for a group of items within a megamenu panel
@@ -161,12 +97,10 @@ limitations under the License.
     AccessibleMegaMenu.prototype = (function () {
 
         /* private attributes and methods ------------------------ */
-        var uuid = 0,
-            keydownTimeoutDuration = 1000,
+        var keydownTimeoutDuration = 1000,
             keydownSearchString = "",
             isTouch = typeof window.hasOwnProperty === "function" && !!window.hasOwnProperty("ontouchstart"),
             _getPlugin,
-            _addUniqueId,
             _togglePanel,
             _clickHandler,
             _clickOutsideHandler,
@@ -189,24 +123,6 @@ limitations under the License.
          */
         _getPlugin = function (element) {
             return $(element).closest(':data(plugin_' + pluginName + ')').data("plugin_" + pluginName);
-        };
-
-        /**
-         * @name jQuery.fn.accessibleMegaMenu~_addUniqueId
-         * @desc Adds a unique id and element.
-         * The id string starts with the
-         * string defined in settings.uuidPrefix.
-         * @param {jQuery} element
-         * @memberof jQuery.fn.accessibleMegaMenu
-         * @inner
-         * @private
-         */
-        _addUniqueId = function (element) {
-            element = $(element);
-            var settings = this.settings;
-            if (!element.attr("id")) {
-                element.attr("id", settings.uuidPrefix + "-" + new Date().getTime() + "-" + (++uuid));
-            }
         };
 
         /**
@@ -436,7 +352,6 @@ limitations under the License.
                 o,
                 label,
                 found = false,
-                newString = Keyboard.keyMap[event.keyCode] || '',
                 regex,
                 isTopNavItem = (topli.length === 1 && panel.length === 0);
 
@@ -464,17 +379,6 @@ limitations under the License.
                     found = (target.next('ul').children(':first-child').children('a').focus().length === 1);
                 }
 
-                /*if (isTopNavItem) {
-                    _togglePanel.call(that, event);
-                    found = (topli.find('.' + settings.panelClass + ' :tabbable:first').focus().length === 1);
-                } else {
-                    found = (tabbables.filter(':gt(' + tabbables.index(target) + '):first').focus().length === 1);
-                }
-                if (!found && window.opera && opera.toString() === "[object Opera]" && (event.ctrlKey || event.metaKey)) {
-                    tabbables = $(':tabbable');
-                    i = tabbables.index(target);
-                    found = ($(':tabbable:gt(' + $(':tabbable').index(target) + '):first').focus().length === 1);
-                }*/
                 break;
             case Keyboard.UP:
                 event.preventDefault();
@@ -484,27 +388,6 @@ limitations under the License.
                     found = (target.parent('li').parent('ul').prev('a').focus().length === 1);
                 }
 
-                /*if (isTopNavItem && target.hasClass(settings.openClass)) {
-                    _togglePanel.call(that, event, true);
-                    next = topnavitems.filter(':lt(' + topnavitems.index(topli) + '):last');
-                    if (next.children('.' + settings.panelClass).length) {
-                        found = (next.children()
-                            .attr('aria-expanded', 'true')
-                            .addClass(settings.openClass)
-                            .filter('.' + settings.panelClass)
-                            .attr('aria-hidden', 'false')
-                            .find(':tabbable:last')
-                            .focus() === 1);
-                    }
-                } else if (!isTopNavItem) {
-                    found = (tabbables.filter(':lt(' + tabbables.index(target) + '):last').focus().length === 1);
-                }
-
-                if (!found && window.opera && opera.toString() === "[object Opera]" && (event.ctrlKey || event.metaKey)) {
-                    tabbables = $(':tabbable');
-                    i = tabbables.index(target);
-                    found = ($(':tabbable:lt(' + $(':tabbable').index(target) + '):first').focus().length === 1);
-                }*/
                 break;
             case Keyboard.RIGHT:
                 event.preventDefault();
@@ -518,20 +401,6 @@ limitations under the License.
                 else if (target.parent('li').parent('ul').next('ul').children('li:first-child').children('a').length === 1) {
                     found = (target.parent('li').parent('ul').next('ul').children('li:first-child').children('a').focus().length === 1);
                 }
-
-                /*
-                if (isTopNavItem) {
-                    found = (topnavitems.filter(':gt(' + topnavitems.index(topli) + '):first').find(':tabbable:first').focus().length === 1);
-                } else {
-                    if (panelGroups.length && currentPanelGroup.length) {
-                        // if the current panel contains panel groups, and we are able to focus the first tabbable element of the next panel group
-                        found = (panelGroups.filter(':gt(' + panelGroups.index(currentPanelGroup) + '):first').find(':tabbable:first').focus().length === 1);
-                    }
-
-                    if (!found) {
-                        found = (topli.find(':tabbable:first').focus().length === 1);
-                    }
-                }*/
 
                 break;
             case Keyboard.LEFT:
@@ -547,119 +416,7 @@ limitations under the License.
                     found = (target.parent('li').parent('ul').prev('ul').children('li:first-child').children('a').focus().length === 1);
                 }
 
-                /*
-                if (isTopNavItem) {
-                    found = (topnavitems.filter(':lt(' + topnavitems.index(topli) + '):last').find(':tabbable:first').focus().length === 1);
-                } else {
-                    if (panelGroups.length && currentPanelGroup.length) {
-                        // if the current panel contains panel groups, and we are able to focus the first tabbable element of the previous panel group
-                        found = (panelGroups.filter(':lt(' + panelGroups.index(currentPanelGroup) + '):last').find(':tabbable:first').focus().length === 1);
-                    }
-
-                    if (!found) {
-                        found = (topli.find(':tabbable:first').focus().length === 1);
-                    }
-                }*/
-
                 break;
-            /*case Keyboard.TAB:
-                i = tabbables.index(target);
-                if (event.shiftKey && isTopNavItem && target.hasClass(settings.openClass)) {
-                    _togglePanel.call(that, event, true);
-                    next = topnavitems.filter(':lt(' + topnavitems.index(topli) + '):last');
-                    if (next.children('.' + settings.panelClass).length) {
-                        found = next.children()
-                            .attr('aria-expanded', 'true')
-                            .addClass(settings.openClass)
-                            .filter('.' + settings.panelClass)
-                            .attr('aria-hidden', 'false')
-                            .find(':tabbable:last')
-                            .focus();
-                    }
-                } else if (event.shiftKey && i > 0) {
-                    found = (tabbables.filter(':lt(' + i + '):last').focus().length === 1);
-                } else if (!event.shiftKey && i < tabbables.length - 1) {
-                    found = (tabbables.filter(':gt(' + i + '):first').focus().length === 1);
-                } else if (window.opera && opera.toString() === "[object Opera]") {
-                    tabbables = $(':tabbable');
-                    i = tabbables.index(target);
-                    if (event.shiftKey) {
-                        found = ($(':tabbable:lt(' + $(':tabbable').index(target) + '):last').focus().length === 1);
-                    } else {
-                        found = ($(':tabbable:gt(' + $(':tabbable').index(target) + '):first').focus().length === 1);
-                    }
-                }
-
-                if (found) {
-                    event.preventDefault();
-                }
-                break;
-            case Keyboard.SPACE:
-                if (isTopNavItem) {
-                    event.preventDefault();
-                    _clickHandler.call(that, event);
-                } else {
-                    return true;
-                }
-                break;
-            case Keyboard.ENTER:
-                return true;
-                break;
-            default:
-                // alphanumeric filter
-                clearTimeout(this.keydownTimeoutID);
-
-                keydownSearchString += newString !== keydownSearchString ? newString : '';
-
-                if (keydownSearchString.length === 0) {
-                    return;
-                }
-
-                this.keydownTimeoutID = setTimeout(function () {
-                    keydownSearchString = '';
-                }, keydownTimeoutDuration);
-
-                if (isTopNavItem && !target.hasClass(settings.openClass)) {
-                    tabbables = tabbables.filter(':not(.' + settings.panelClass + ' :tabbable)');
-                } else {
-                    tabbables = topli.find(':tabbable');
-                }
-
-                if (event.shiftKey) {
-                    tabbables = $(tabbables.get()
-                        .reverse());
-                }
-
-                for (i = 0; i < tabbables.length; i++) {
-                    o = tabbables.eq(i);
-                    if (o.is(target)) {
-                        start = (keydownSearchString.length === 1) ? i + 1 : i;
-                        break;
-                    }
-                }
-
-                regex = new RegExp('^' + keydownSearchString.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&'), 'i');
-
-                for (i = start; i < tabbables.length; i++) {
-                    o = tabbables.eq(i);
-                    label = $.trim(o.text());
-                    if (regex.test(label)) {
-                        found = true;
-                        o.focus();
-                        break;
-                    }
-                }
-                if (!found) {
-                    for (i = 0; i < start; i++) {
-                        o = tabbables.eq(i);
-                        label = $.trim(o.text());
-                        if (regex.test(label)) {
-                            o.focus();
-                            break;
-                        }
-                    }
-                }
-                break;*/
             }
             that.justFocused = false;
         };
@@ -764,42 +521,17 @@ limitations under the License.
                 this.menu = menu;
                 this.topnavitems = topnavitems;
 
-                //nav.attr("role", "navigation");
-                //menu.addClass(settings.menuClass);
                 topnavitems.each(function (i, topnavitem) {
                     var topnavitemlink, topnavitempanel;
                     topnavitem = $(topnavitem);
                     topnavitem.addClass(settings.topNavItemClass);
                     topnavitemlink = topnavitem.find(":tabbable:first");
                     topnavitempanel = topnavitem.children(":not(:tabbable):last");
-                    _addUniqueId.call(that, topnavitemlink);
-                    if (topnavitempanel.length) {
-                        _addUniqueId.call(that, topnavitempanel);
-                        topnavitemlink.attr({
-                            // "aria-haspopup": true,
-                            //"aria-controls": topnavitempanel.attr("id"),
-                            //"aria-expanded": false
-                        });
 
-                        topnavitempanel.attr({
-                            //"role": "region",
-                            //"aria-expanded": false,
-                            //"aria-hidden": true
-                        })
-                            //.addClass(settings.panelClass)
-                            //.not("[aria-labelledby]")
-                            //.attr("aria-labelledby", topnavitemlink.attr("id"));
-                    }
                 });
 
                 this.panels = menu.find("." + settings.panelClass);
 
-                /*menu.on("focusin.accessible-megamenu", ":focusable, ." + settings.panelClass, $.proxy(_focusInHandler, this))
-                    .on("focusout.accessible-megamenu", ":focusable, ." + settings.panelClass, $.proxy(_focusOutHandler, this))
-                    .on("keydown.accessible-megamenu", $.proxy(_keyDownHandler, this))
-                    .on("mouseover.accessible-megamenu", $.proxy(_mouseOverHandler, this))
-                    .on("mouseout.accessible-megamenu", $.proxy(_mouseOutHandler, this))
-                    .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this));*/
                 menu.on("focusin", ":focusable, ." + settings.panelClass, $.proxy(_focusInHandler, this))
                     .on("focusout", ":focusable, ." + settings.panelClass, $.proxy(_focusOutHandler, this))
                     .on("keydown", $.proxy(_keyDownHandler, this))
@@ -877,170 +609,8 @@ limitations under the License.
      * @class accessibleMegaMenu
      * @memberOf jQuery.fn
      * @classdesc Implements an accessible mega menu as a jQuery plugin.
-     * <p>The mega-menu It is modeled after the mega menu on {@link http://adobe.com|adobe.com} but has been simplified for use by others. A brief description of the interaction design choices can be found in a blog post at {@link http://blogs.adobe.com/accessibility/2013/05/adobe-com.html|Mega menu accessibility on adobe.com}.</p>
-     * <h3>Keyboard Accessibility</h3>
-     * <p>The accessible mega menu supports keyboard interaction modeled after the behavior described in the {@link http://www.w3.org/TR/wai-aria-practices/#menu|WAI-ARIA Menu or Menu bar (widget) design pattern}, however we also try to respect users' general expectations for the behavior of links in a global navigation. To this end, the accessible mega menu implementation permits tab focus on each of the six top-level menu items. When one of the menu items has focus, pressing the Enter key, Spacebar or Down arrow will open the submenu panel, and pressing the Left or Right arrow key will shift focus to the adjacent menu item. Links within the submenu panels are included in the tab order when the panel is open. They can also be navigated with the arrow keys or by typing the first character in the link name, which speeds up keyboard navigation considerably. Pressing the Escape key closes the submenu and restores focus to the parent menu item.</p>
-     * <h3>Screen Reader Accessibility</h3>
-     * <p>The accessible mega menu models its use of WAI-ARIA Roles, States, and Properties after those described in the {@link http://www.w3.org/TR/wai-aria-practices/#menu|WAI-ARIA Menu or Menu bar (widget) design pattern} with some notable exceptions, so that it behaves better with screen reader user expectations for global navigation. We don't use <code class="prettyprint prettyprinted" style=""><span class="pln">role</span><span class="pun">=</span><span class="str">"menu"</span></code> for the menu container and <code class="prettyprint prettyprinted" style=""><span class="pln">role</span><span class="pun">=</span><span class="str">"menuitem"</span></code> for each of the links therein, because if we do, assistive technology will no longer interpret the links as links, but instead, as menu items, and the links in our global navigation will no longer show up when a screen reader user executes a shortcut command to bring up a list of links in the page.</p>
-     * @example <h4>HTML</h4><hr/>
-&lt;nav&gt;
-    &lt;ul class=&quot;nav-menu&quot;&gt;
-        &lt;li class=&quot;nav-item&quot;&gt;
-            &lt;a href=&quot;?movie&quot;&gt;Movies&lt;/a&gt;
-            &lt;div class=&quot;sub-nav&quot;&gt;
-                &lt;ul class=&quot;sub-nav-group&quot;&gt;
-                    &lt;li&gt;&lt;a href=&quot;?movie&amp;genre=0&quot;&gt;Action &amp;amp; Adventure&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;?movie&amp;genre=2&quot;&gt;Children &amp;amp; Family&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&amp;#8230;&lt;/li&gt;
-                &lt;/ul&gt;
-                &lt;ul class=&quot;sub-nav-group&quot;&gt;
-                    &lt;li&gt;&lt;a href=&quot;?movie&amp;genre=7&quot;&gt;Dramas&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;?movie&amp;genre=9&quot;&gt;Foreign&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&amp;#8230;&lt;/li&gt;
-                &lt;/ul&gt;
-                &lt;ul class=&quot;sub-nav-group&quot;&gt;
-                    &lt;li&gt;&lt;a href=&quot;?movie&amp;genre=14&quot;&gt;Musicals&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;?movie&amp;genre=15&quot;&gt;Romance&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&amp;#8230;&lt;/li&gt;
-                &lt;/ul&gt;
-            &lt;/div&gt;
-        &lt;/li&gt;
-        &lt;li class=&quot;nav-item&quot;&gt;
-            &lt;a href=&quot;?tv&quot;&gt;TV Shows&lt;/a&gt;
-            &lt;div class=&quot;sub-nav&quot;&gt;
-                &lt;ul class=&quot;sub-nav-group&quot;&gt;
-                    &lt;li&gt;&lt;a href=&quot;?tv&amp;genre=20&quot;&gt;Classic TV&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;?tv&amp;genre=21&quot;&gt;Crime TV&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&amp;#8230;&lt;/li&gt;
-                &lt;/ul&gt;
-                &lt;ul class=&quot;sub-nav-group&quot;&gt;
-                    &lt;li&gt;&lt;a href=&quot;?tv&amp;genre=27&quot;&gt;Reality TV&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;?tv&amp;genre=30&quot;&gt;TV Action&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&amp;#8230;&lt;/li&gt;
-                &lt;/ul&gt;
-                &lt;ul class=&quot;sub-nav-group&quot;&gt;
-                    &lt;li&gt;&lt;a href=&quot;?tv&amp;genre=33&quot;&gt;TV Dramas&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;?tv&amp;genre=34&quot;&gt;TV Horror&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&amp;#8230;&lt;/li&gt;
-                &lt;/ul&gt;
-            &lt;/div&gt;
-        &lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/nav&gt;
-     * @example <h4>CSS</h4><hr/>
-&#47;* Rudimentary mega menu CSS for demonstration *&#47;
-
-&#47;* mega menu list *&#47;
-.nav-menu {
-    display: block;
-    position: relative;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    z-index: 15;
-}
-
-&#47;* a top level navigation item in the mega menu *&#47;
-.nav-item {
-    list-style: none;
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-}
-
-&#47;* first descendant link within a top level navigation item *&#47;
-.nav-item &gt; a {
-    position: relative;
-    display: inline-block;
-    padding: 0.5em 1em;
-    margin: 0 0 -1px 0;
-    border: 1px solid transparent;
-}
-
-&#47;* focus/open states of first descendant link within a top level
-   navigation item *&#47;
-.nav-item &gt; a:focus,
-.nav-item &gt; a.open {
-    border: 1px solid #dedede;
-}
-
-&#47;* open state of first descendant link within a top level
-   navigation item *&#47;
-.nav-item &gt; a.open {
-    background-color: #fff;
-    border-bottom: none;
-    z-index: 1;
-}
-
-&#47;* sub-navigation panel *&#47;
-.sub-nav {
-    position: absolute;
-    display: none;
-    top: 2.2em;
-    margin-top: -1px;
-    padding: 0.5em 1em;
-    border: 1px solid #dedede;
-    background-color: #fff;
-}
-
-&#47;* sub-navigation panel open state *&#47;
-.sub-nav.open {
-    display: block;
-}
-
-&#47;* list of items within sub-navigation panel *&#47;
-.sub-nav ul {
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 1em 0 0;
-    padding: 0;
-}
-
-&#47;* list item within sub-navigation panel *&#47;
-.sub-nav li {
-    display: block;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-     * @example <h4>JavaScript</h4><hr/>
-&lt;!-- include jquery --&gt;
-&lt;script src=&quot;http://code.jquery.com/jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
-
-&lt;!-- include the jquery-accessibleMegaMenu plugin script --&gt;
-&lt;script src=&quot;js/jquery-accessibleMegaMenu.js&quot;&gt;&lt;/script&gt;
-
-&lt;!-- initialize a selector as an accessibleMegaMenu --&gt;
-&lt;script&gt;
-    $(&quot;nav:first&quot;).accessibleMegaMenu({
-        &#47;* prefix for generated unique id attributes, which are required to indicate aria-owns, aria-controls and aria-labelledby *&#47;
-        uuidPrefix: &quot;accessible-megamenu&quot;,
-
-        &#47;* css class used to define the megamenu styling *&#47;
-        menuClass: &quot;nav-menu&quot;,
-
-        &#47;* css class for a top-level navigation item in the megamenu *&#47;
-        topNavItemClass: &quot;nav-item&quot;,
-
-        &#47;* css class for a megamenu panel *&#47;
-        panelClass: &quot;sub-nav&quot;,
-
-        &#47;* css class for a group of items within a megamenu panel *&#47;
-        panelGroupClass: &quot;sub-nav-group&quot;,
-
-        &#47;* css class for the hover state *&#47;
-        hoverClass: &quot;hover&quot;,
-
-        &#47;* css class for the focus state *&#47;
-        focusClass: &quot;focus&quot;,
-
-        &#47;* css class for the open state *&#47;
-        openClass: &quot;open&quot;
-    });
-&lt;/script&gt;
+     *
      * @param {object} [options] Mega Menu options
-     * @param {string} [options.uuidPrefix=accessible-megamenu] - Prefix for generated unique id attributes, which are required to indicate aria-owns, aria-controls and aria-labelledby
-     * @param {string} [options.menuClass=accessible-megamenu] - CSS class used to define the megamenu styling
      * @param {string} [options.topNavItemClass=accessible-megamenu-top-nav-item] - CSS class for a top-level navigation item in the megamenu
      * @param {string} [options.panelClass=accessible-megamenu-panel] - CSS class for a megamenu panel
      * @param {string} [options.panelGroupClass=accessible-megamenu-panel-group] - CSS class for a group of items within a megamenu panel
