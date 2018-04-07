@@ -48,10 +48,10 @@ limitations under the License.
     "use strict";
     var pluginName = "accessibleMegaMenu",
         defaults = {
-            // TODO: prefix js- classes
-            topNavItemClass: "accessible-megamenu-top-nav-item", // default css class for a top-level navigation item in the megamenu
-            panelClass: "accessible-megamenu-panel", // default css class for a megamenu panel
-            panelGroupClass: "accessible-megamenu-panel-group", // default css class for a group of items within a megamenu panel
+            // TODO: Add menu class "accessible-megamenu" as a setting (currently hardcoded)
+            topNavItemClass: "js-menuParent", // default css class for a top-level navigation item in the megamenu
+            // TODO: Add panelClass via js (currently required in HTML)
+            panelClass: "js-menuPanel", // default css class for a megamenu panel
             hoverClass: "hover", // default css class for the hover state
             focusClass: "focus", // default css class for the focus state
             openClass: "open", // default css class for the open state
@@ -71,7 +71,6 @@ limitations under the License.
      * @param {object} [options] Mega Menu options
      * @param {string} [options.topNavItemClass=accessible-megamenu-top-nav-item] - CSS class for a top-level navigation item in the megamenu
      * @param {string} [options.panelClass=accessible-megamenu-panel] - CSS class for a megamenu panel
-     * @param {string} [options.panelGroupClass=accessible-megamenu-panel-group] - CSS class for a group of items within a megamenu panel
      * @param {string} [options.hoverClass=hover] - CSS class for the hover state
      * @param {string} [options.focusClass=focus] - CSS class for the focus state
      * @param {string} [options.openClass=open] - CSS class for the open state
@@ -147,7 +146,7 @@ limitations under the License.
             _toggleExpandedEventHandlers.call(this, true);
 
             if (hide) {
-                topli = menu.find('.' + settings.topNavItemClass + ' .' + settings.openClass + ':first').closest('.' + settings.topNavItemClass);
+                topli = menu.find('.' + settings.topNavItemClass + '.' + settings.openClass + ':first');
                 if (!(topli.is(event.relatedTarget) || topli.has(event.relatedTarget).length > 0)) {
                     if ((event.type === 'mouseout' || event.type === 'focusout') && topli.has(document.activeElement).length > 0) {
                         return;
@@ -165,7 +164,7 @@ limitations under the License.
                 }
             } else {
                 clearTimeout(that.focusTimeoutID);
-                topli.parent('ul').siblings().find('li')
+                topli.siblings()
                     .removeClass(settings.openClass)
                 topli
                     .addClass(settings.openClass);
@@ -326,8 +325,6 @@ limitations under the License.
                 topli = target.closest('.' + settings.topNavItemClass),
                 tabbables = menu.find(':tabbable'),
                 panel = target.hasClass(settings.panelClass) ? target : target.closest('.' + settings.panelClass),
-                panelGroups = panel.find('.' + settings.panelGroupClass),
-                currentPanelGroup = target.closest('.' + settings.panelGroupClass),
                 next,
                 keycode = event.keyCode || event.which,
                 start,
@@ -492,9 +489,8 @@ limitations under the License.
             init: function () {
                 var settings = this.settings,
                     nav = $(this.element),
-                    //menu = nav.children().first(),
                     menu = nav,
-                    topnavitems = menu.children();
+                    topnavitems = menu.children('ul');
                 this.start(settings, nav, menu, topnavitems);
             },
 
@@ -596,7 +592,6 @@ limitations under the License.
      * @param {object} [options] Mega Menu options
      * @param {string} [options.topNavItemClass=accessible-megamenu-top-nav-item] - CSS class for a top-level navigation item in the megamenu
      * @param {string} [options.panelClass=accessible-megamenu-panel] - CSS class for a megamenu panel
-     * @param {string} [options.panelGroupClass=accessible-megamenu-panel-group] - CSS class for a group of items within a megamenu panel
      * @param {string} [options.hoverClass=hover] - CSS class for the hover state
      * @param {string} [options.focusClass=focus] - CSS class for the focus state
      * @param {string} [options.openClass=open] - CSS class for the open state

@@ -49,10 +49,13 @@ limitations under the License.
     outline:  2px solid rgba(34, 95, 215, 0.3);
     -moz-outline-radius: 3px;
 }
-
+.accessible-megamenu .js-menuParent {
+    margin: 0;
+    padding: 0;
+}
 
 /* Parent <li> */
-.accessible-megamenu .accessible-megamenu-top-nav-item {
+.accessible-megamenu .js-menuParent > li {
     position: relative;
     display: block;
     margin: 0;
@@ -60,7 +63,7 @@ limitations under the License.
     float: left;
 }
 
-.theme-adobe.accessible-megamenu .accessible-megamenu-top-nav-item {
+.theme-adobe.accessible-megamenu .js-menuParent > li {
     list-style: none;
     height: 3.077em;
     color: #454545 !important;
@@ -71,19 +74,19 @@ limitations under the License.
 }
 
 /* Parent <a> */
-.accessible-megamenu .accessible-megamenu-top-nav-item > a {
+.accessible-megamenu .js-menuParent > li > a {
     position: relative;
     display: block;
     line-height: 1.25em;
     height: 1.25em;
 }
-.theme-naked.accessible-megamenu .accessible-megamenu-top-nav-item > a {
+.theme-naked.accessible-megamenu .js-menuParent > li > a {
     line-height: 3em;
     height: 3em;
     padding-left: 0.769em;
     padding-right: 0.769em;
 }
-.theme-adobe.accessible-megamenu .accessible-megamenu-top-nav-item > a {
+.theme-adobe.accessible-megamenu .js-menuParent > li  > a {
     line-height: 3em;
     height: 3em;
     padding-left: 0.769em;
@@ -94,19 +97,19 @@ limitations under the License.
     z-index: inherit;
 }
 
-.theme-adobe.accessible-megamenu .accessible-megamenu-top-nav-item.open > a:hover,
-.theme-adobe.accessible-megamenu .accessible-megamenu-top-nav-item.open > a:focus {
+.theme-adobe.accessible-megamenu .js-menuParent.open > li > a:hover,
+.theme-adobe.accessible-megamenu .js-menuParent.open > li > a:focus {
     color: #333 !important;
     outline-offset: -1px;
 }
 
-.theme-adobe.accessible-megamenu .accessible-megamenu-top-nav-item.open > a:hover,
-.theme-adobe.accessible-megamenu .accessible-megamenu-top-nav-item.open > a:focus {
+.theme-adobe.accessible-megamenu .js-menuParent.open > li > a:hover,
+.theme-adobe.accessible-megamenu .js-menuParent.open > li > a:focus {
     margin-left: 0;
     z-index: 1002;
 }
-.theme-adobe.accessible-megamenu .accessible-megamenu-top-nav-item.open > a:hover,
-.theme-adobe.accessible-megamenu .accessible-megamenu-top-nav-item.open > a:focus {
+.theme-adobe.accessible-megamenu .js-menuParent.open > li > a:hover,
+.theme-adobe.accessible-megamenu .js-menuParent.open > li > a:focus {
     background: #f5f8fa none;
     background: -webkit-gradient(linear,left top,left bottom,from(#f5f8fa),to(#e3e5e5));
     background: -moz-linear-gradient(top,#f5f8fa,#e3e5e5);
@@ -114,16 +117,16 @@ limitations under the License.
     background: -o-linear-gradient(top,#f5f8fa,#e3e5e5);
 }
 
-.theme-adobe.accessible-megamenu .accessible-megamenu-top-nav-item.open > a {
+.theme-adobe.accessible-megamenu .js-menuParent.open > li > a {
     background: #f5f8fa none;
     padding-bottom: 2px;
 }
 
-.theme-adobe.accessible-megamenu .accessible-megamenu-top-nav-item.open > a {
+.theme-adobe.accessible-megamenu .js-menuParent.open > li > a {
     border-bottom-left-radius: 3px;
 }
 
-.theme-adobe..accessible-megamenu .accessible-megamenu-top-nav-item.open > a {
+.theme-adobe..accessible-megamenu .js-menuParent.open > li > a {
     border-bottom-left-radius: 0px;
     border-left: 1px solid #b3b3b3;
     border-left-color: rgba(0,0,0,0.3);
@@ -132,7 +135,7 @@ limitations under the License.
 }
 
 /* Megamenu container, child <ul> */
-.accessible-megamenu .accessible-megamenu-panel {
+.accessible-megamenu .js-menuPanel {
     position: absolute;
     display: block;
     list-style: none;
@@ -150,13 +153,13 @@ limitations under the License.
             transition: opacity 250ms ease 250ms, max-height 500ms ease, visibility 0s linear 500ms, top 0s linear 500ms;
 }
 
-.theme-naked.accessible-megamenu .accessible-megamenu-panel {
+.theme-naked.accessible-megamenu .js-menuPanel {
     width: 800px;
     padding: 0 0.769em 0.769em;
     background-color: #ddd;
 }
 
-.theme-adobe.accessible-megamenu .accessible-megamenu-panel {
+.theme-adobe.accessible-megamenu .js-menuPanel {
     width: 800px;
     padding: 0 0.769em 0.769em;
     left: -1px;
@@ -181,7 +184,7 @@ limitations under the License.
 }
 
 /* Megamenu child <li> */
-.accessible-megamenu .accessible-megamenu-top-nav-item.open .accessible-megamenu-panel {
+.accessible-megamenu .js-menuParent.open .js-menuPanel {
     top: 1.25em; /* Must be set for CSS animation to work */
     max-height: 600px; /* Must be set for CSS animation to work */
     visibility: visible;
@@ -193,16 +196,16 @@ limitations under the License.
          -o-transition: opacity 250ms ease, max-height 500ms ease, visibility 0s linear 0s, top 0s linear 0s;
             transition: opacity 250ms ease, max-height 500ms ease, visibility 0s linear 0s, top 0s linear 0s;
 }
-.theme-naked.accessible-megamenu .accessible-megamenu-top-nav-item.open .accessible-megamenu-panel {
+.theme-naked.accessible-megamenu .js-menuParent.open .js-menuPanel {
     top: 3em;
     max-height: 600px;
 }
-.theme-adobe.accessible-megamenu .accessible-megamenu-top-nav-item.open .accessible-megamenu-panel {
+.theme-adobe.accessible-megamenu .js-menuParent.open .js-menuPanel {
     top: 3em;
     max-height: 600px;
 }
 
-.theme-adobe.accessible-megamenu .accessible-megamenu-panel a {
+.theme-adobe.accessible-megamenu .js-menuPanel a {
     display: block;
     font-size: .92em;
     line-height: 1.2em;
@@ -212,20 +215,20 @@ limitations under the License.
     margin-bottom: 0.5em;
 }
 
-.accessible-megamenu .accessible-megamenu-panel li {
+.accessible-megamenu .js-menuPanel li {
     position: relative;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.theme-naked.accessible-megamenu .accessible-megamenu-panel > li {
+.theme-naked.accessible-megamenu .js-menuPanel > li {
     width: 30%;
     float: left;
     display: block;
 }
 
-.theme-adobe.accessible-megamenu .accessible-megamenu-panel > li {
+.theme-adobe.accessible-megamenu .js-menuPanel > li {
     width: 28%;
     float: left;
     display: block;
@@ -236,14 +239,14 @@ limitations under the License.
     box-shadow: inset 1px 0 0 #fff;
 }
 
-.theme-adobe.accessible-megamenu .accessible-megamenu-panel > li:first-of-type {
+.theme-adobe.accessible-megamenu .js-menuPanel > li:first-of-type {
     padding-left: 0;
     border-left: none;
     box-shadow: none;
 }
 
-.theme-adobe.accessible-megamenu .accessible-megamenu-panel a:hover,
-.theme-adobe.accessible-megamenu .accessible-megamenu-panel a:focus {
+.theme-adobe.accessible-megamenu .js-menuPanel a:hover,
+.theme-adobe.accessible-megamenu .js-menuPanel a:focus {
     color: #225FD7;
     text-decoration: underline;
 }
