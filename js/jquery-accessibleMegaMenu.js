@@ -345,58 +345,74 @@ limitations under the License.
             }
 
             switch (keycode) {
-            case Keyboard.ESCAPE:
-                _togglePanel.call(that, event, true);
-                break;
-            case Keyboard.DOWN:
-                event.preventDefault();
+                case Keyboard.ESCAPE:
+                    event.preventDefault();
 
-                // Only allow DOWN when changing menu levels
-                if (isTopNavItem) {
-                    _togglePanel.call(that, event);
-                    found = (target.next('ul').children(':first-child').children('a').focus().length === 1);
-                } else if (target.next('ul').length === 1) {
-                    found = (target.next('ul').children(':first-child').children('a').focus().length === 1);
-                }
-
-                break;
-            case Keyboard.UP:
-                event.preventDefault();
-
-                // Only allow UP when changing menu levels
-                if (target.parent('li').parent('ul').prev('a').length === 1) {
-                    found = (target.parent('li').parent('ul').prev('a').focus().length === 1);
-                }
+                    // Escape exposed subtree up to top level, escape again to skip
+                    // menu
+                    if (isTopNavItem) {
+                        var focusables = $(':focusable');
+                        for (i = focusables.index(target); i < focusables.length; i++) {
+                            var elem = $(focusables[i]);
+                            if (elem.attr('role') == 'undefined' ||  elem.attr('role') != 'menuitem') {
+                                elem.focus();
+                                break;
+                            }
+                        }
+                    } else {
+                        _togglePanel.call(that, event, true);
+                    }
 
                 break;
-            case Keyboard.RIGHT:
-                event.preventDefault();
+                case Keyboard.DOWN:
+                    event.preventDefault();
 
-                // Only allow RIGHT when navigating siblings
-                // Children and subchildren
-                if (target.parent('li').next('li').length === 1) {
-                    found = (target.parent('li').next('li').children('a').focus().length === 1);
-                }
-                // Parents
-                else if (target.parent('li').parent('ul').next('ul').children('li:first-child').children('a').length === 1) {
-                    found = (target.parent('li').parent('ul').next('ul').children('li:first-child').children('a').focus().length === 1);
-                }
+                    // Only allow DOWN when changing menu levels
+                    if (isTopNavItem) {
+                        _togglePanel.call(that, event);
+                        found = (target.next('ul').children(':first-child').children('a').focus().length === 1);
+                    } else if (target.next('ul').length === 1) {
+                        found = (target.next('ul').children(':first-child').children('a').focus().length === 1);
+                    }
 
-                break;
-            case Keyboard.LEFT:
-                event.preventDefault();
+                    break;
+                case Keyboard.UP:
+                    event.preventDefault();
 
-                // Only allow LEFT when navigating siblings
-                // Children and subchildren
-                if (target.parent('li').prev('li').length === 1) {
-                    found = (target.parent('li').prev('li').children('a').focus().length === 1);
-                }
-                // Parents
-                else if (target.parent('li').parent('ul').prev('ul').children('li:first-child').children('a').length === 1) {
-                    found = (target.parent('li').parent('ul').prev('ul').children('li:first-child').children('a').focus().length === 1);
-                }
+                    // Only allow UP when changing menu levels
+                    if (target.parent('li').parent('ul').prev('a').length === 1) {
+                        found = (target.parent('li').parent('ul').prev('a').focus().length === 1);
+                    }
 
-                break;
+                    break;
+                case Keyboard.RIGHT:
+                    event.preventDefault();
+
+                    // Only allow RIGHT when navigating siblings
+                    // Children and subchildren
+                    if (target.parent('li').next('li').length === 1) {
+                        found = (target.parent('li').next('li').children('a').focus().length === 1);
+                    }
+                    // Parents
+                    else if (target.parent('li').parent('ul').next('ul').children('li:first-child').children('a').length === 1) {
+                        found = (target.parent('li').parent('ul').next('ul').children('li:first-child').children('a').focus().length === 1);
+                    }
+
+                    break;
+                case Keyboard.LEFT:
+                    event.preventDefault();
+
+                    // Only allow LEFT when navigating siblings
+                    // Children and subchildren
+                    if (target.parent('li').prev('li').length === 1) {
+                        found = (target.parent('li').prev('li').children('a').focus().length === 1);
+                    }
+                    // Parents
+                    else if (target.parent('li').parent('ul').prev('ul').children('li:first-child').children('a').length === 1) {
+                        found = (target.parent('li').parent('ul').prev('ul').children('li:first-child').children('a').focus().length === 1);
+                    }
+
+                    break;
             }
             that.justFocused = false;
         };
