@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Accessible Megatree demo</title>
+    <title>Hedge Maze - Accessible Multi-level Megamenu Demo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <script
@@ -23,149 +23,155 @@
 <header>
     <nav>
     <div role="menubar" class="megamenu accessible-megamenu theme-adobe">
-        <h2 id="mega-tree-title" class="element-invisible">Mega Tree Navigation</h2>
-        <p id="mega-tree-help" class="element-invisible">Use left and right arrow keys to navigate the menus, up and down arrow keys to move between children of current menu, and enter to activate.</p>
-        <ul role="menu" aria-labelledby="mega-tree-title">
+        <h2 id="menu-title" class="element-invisible">Hedge Maze Navigation</h2>
+        <h3>Menu Navigation Tips</h3>
+        <p id="menu-help" class="element-invisible">
+            <span id="menu-help-intro">The following menu has 3 levels.</span> 
+            <span id="menu-help-menus">Use left and right arrow keys to navigate between menus and submenus.</span> 
+            <span id="menu-help-submenu">Use up and down arrow keys to explore within a submenu.</span> 
+            <span id="menu-help-activate">Use enter to activate.</span>
+        </p>
+        <ul role="menu" aria-labelledby="menu-title">
             <li role="presentation">
-                <a aria-describedby="mega-tree-help" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=parent1">Parent 1</a>
+                <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=parent1">Parent 1</a>
                 <ul class="js-menuPanel">
                     <li role="presentation" >
-                        <a  aria-describedby="mega-tree-help" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
+                        <a  aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
                     <li role="presentation" >
-                        <a aria-describedby="mega-tree-help" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
                     <li role="presentation" >
-                        <a aria-describedby="mega-tree-help" role="menuitem" aria-haspopup="true" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
                 </ul>
             </li>
         </ul>
-        <ul role="menu" aria-labelledby="mega-tree-title">
+        <ul role="menu" aria-labelledby="menu-title">
             <li role="presentation">
-                <a aria-describedby="mega-tree-help" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=parent2">Parent 2</a>
+                <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=parent2">Parent 2</a>
                 <ul class="js-menuPanel">
                     <li role="presentation" >
-                        <a aria-describedby="mega-tree-help" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
                     <li role="presentation" >
-                        <a aria-describedby="mega-tree-help" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
                     <li role="presentation">
-                        <a aria-describedby="mega-tree-help" role="menuitem" aria-haspopup="true" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
                 </ul>
             </li>
         </ul>
-        <ul role="menu" aria-labelledby="mega-tree-title">
+        <ul role="menu" aria-labelledby="menu-title">
             <li role="presentation">
-                <a aria-describedby="mega-tree-help" role="menuitem" aria-haspopup="true" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=parent3">Parent 3</a>
+                <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=parent3">Parent 3</a>
                 <ul class="js-menuPanel">
                     <li role="presentation" >
-                        <a aria-describedby="mega-tree-help" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
                     <li role="presentation" >
-                        <a aria-describedby="mega-tree-help" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
                     <li role="presentation" >
-                        <a aria-describedby="mega-tree-help" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="mega-tree-help" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
