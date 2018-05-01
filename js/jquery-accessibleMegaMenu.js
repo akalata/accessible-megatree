@@ -364,27 +364,52 @@ limitations under the License.
                     }
 
                 break;
+
+                // UP and DOWN behave differently at different levels of
+                // navigation for visual equivalency.
+                //
+                // DOWN:
+                // - Navigates between a Level 1 parent and its first Level 2 child
+                // - Navigates between a Level 2 child and its first Level 3 subchild
+                // - Navigates between a Level 3 subchild and its next sibling
+                //
+                // UP:
+                // - Navigates between a Level 2 child and its Level 1 parent
+                // - Navigates between the first Level 3 subchild to its Level 2 child-parent
+                // - Navigates between a Level 3 subchild (other than the first) and its previous sibling
+
                 case Keyboard.DOWN:
                     event.preventDefault();
 
-                    // Only allow DOWN when changing menu levels
                     if (isTopNavItem) {
                         _togglePanel.call(that, event);
                         found = (target.next('ul').children(':first-child').children('a').focus().length === 1);
                     } else if (target.next('ul').length === 1) {
                         found = (target.next('ul').children(':first-child').children('a').focus().length === 1);
+                    } else if (target.parent('li').next('li').length === 1) {
+                        found = (target.parent('li').next('li').children('a').focus().length === 1);
                     }
 
                     break;
                 case Keyboard.UP:
                     event.preventDefault();
 
-                    // Only allow UP when changing menu levels
-                    if (target.parent('li').parent('ul').prev('a').length === 1) {
+                    // Change menu levels
+                    if (target.parent('li').is(':first-child') && target.parent('li').parent('ul').prev('a').length === 1) {
                         found = (target.parent('li').parent('ul').prev('a').focus().length === 1);
+                    } else if (target.parent('li').prev('li').length === 1) {
+                        found = (target.parent('li').prev('li').children('a').focus().length === 1);
                     }
 
                     break;
+
+                // LEFT and RIGHT be have differently at different levels of
+                // navigation to support the visual equivalency of the UP and
+                // DOWN navigation (see above).
+                //
+                // Level 1 Parents - navigate between siblings
+                // Level 2 Children - navigate between siblings
+                // Level 3 Subchildren - do we need to remove this functionality?
                 case Keyboard.RIGHT:
                     event.preventDefault();
 
