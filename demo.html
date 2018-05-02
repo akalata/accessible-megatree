@@ -30,50 +30,51 @@
             <span id="menu-help-menus">Use left and right arrow keys to navigate between menus and submenus.</span> 
             <span id="menu-help-submenu">Use up and down arrow keys to explore within a submenu.</span> 
             <span id="menu-help-activate">Use enter to activate.</span>
+            Within a submenu, <span id="menu-help-escape-submenu">use escape to move to top level menu parent.</span> From top level menus, <span id="menu-help-escape-menu">use escape to exit the menu.</span>
         </p>
         <ul role="menu" aria-labelledby="menu-title">
             <li role="presentation">
-                <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=parent1">Parent 1</a>
+                <a aria-describedby="menu-help-menus menu-help-activate menu-help-escape-menu" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=parent1">Parent 1</a>
                 <ul class="js-menuPanel">
                     <li role="presentation" >
-                        <a  aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
+                        <a  aria-describedby="menu-help-menus menu-help-activate menu-help-escape-submenu" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
                     <li role="presentation" >
-                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate menu-help-escape-submenu" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
                     <li role="presentation" >
-                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate menu-help-escape-submenu" role="menuitem" aria-haspopup="true" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
@@ -82,47 +83,47 @@
         </ul>
         <ul role="menu" aria-labelledby="menu-title">
             <li role="presentation">
-                <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=parent2">Parent 2</a>
+                <a aria-describedby="menu-help-menus menu-help-activate menu-help-escape-menu" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=parent2">Parent 2</a>
                 <ul class="js-menuPanel">
                     <li role="presentation" >
-                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate menu-help-escape-submenu" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
                     <li role="presentation" >
-                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate menu-help-escape-submenu" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
                     <li role="presentation">
-                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate menu-help-escape-submenu" role="menuitem" aria-haspopup="true" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
@@ -131,47 +132,47 @@
         </ul>
         <ul role="menu" aria-labelledby="menu-title">
             <li role="presentation">
-                <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=parent3">Parent 3</a>
+                <a aria-describedby="menu-help-menus menu-help-activate menu-help-escape-menu" role="menuitem" aria-haspopup="true" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=parent3">Parent 3</a>
                 <ul class="js-menuPanel">
                     <li role="presentation" >
-                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate menu-help-escape-submenu" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child1">Child 1</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
                     <li role="presentation" >
-                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate menu-help-escape-submenu" role="menuitem" aria-haspopup="true" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=child2">Child 2</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>
                     <li role="presentation" >
-                        <a aria-describedby="menu-help-menus menu-help-activate" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
+                        <a aria-describedby="menu-help-menus menu-help-activate menu-help-escape-submenu" role="menuitem" aria-haspopup="true" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=child3">Child 3</a>
                         <ul>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="1" aria-setsize="3" href="http://google.com/?q=subchild1">Subchild 1</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="2" aria-setsize="3" href="http://google.com/?q=subchild2">Subchild 2</a>
                             </li>
                             <li role="presentation">
-                                <a aria-describedby="menu-help-submenu menu-help-activate" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
+                                <a aria-describedby="menu-help-submenu menu-help-activate menu-help-escape-submenu" role="menuitem" aria-posinset="3" aria-setsize="3" href="http://google.com/?q=subchild3">Subchild 3</a>
                             </li>
                         </ul>
                     </li>

@@ -409,33 +409,47 @@ limitations under the License.
                 //
                 // Level 1 Parents - navigate between siblings
                 // Level 2 Children - navigate between siblings
-                // Level 3 Subchildren - do we need to remove this functionality?
+                // Level 3 Subchildren - navigate to its parent's siblings
                 case Keyboard.RIGHT:
                     event.preventDefault();
 
-                    // Only allow RIGHT when navigating siblings
-                    // Children and subchildren
-                    if (target.parent('li').next('li').length === 1) {
-                        found = (target.parent('li').next('li').children('a').focus().length === 1);
-                    }
                     // Parents
-                    else if (target.parent('li').parent('ul').next('ul').children('li:first-child').children('a').length === 1) {
+                    if (target.parent('li').parent('ul').next('ul').children('li:first-child').children('a').length === 1) {
                         found = (target.parent('li').parent('ul').next('ul').children('li:first-child').children('a').focus().length === 1);
                     }
+                    // Subchildren
+                    else if (target.parent('li').parent('ul').parent('li').parent('ul').attr('role') == 'undefined' ||
+                             target.parent('li').parent('ul').parent('li').parent('ul').attr('role') != 'menu') {
+                        if (target.parent('li').parent('ul').parent('li').next('li').length === 1) {
+                            found = (target.parent('li').parent('ul').parent('li').next('li').children('a').focus().length === 1);
+                        }
+                    }
+                    // Children
+                    else if (target.parent('li').next('li').length === 1) {
+                        found = (target.parent('li').next('li').children('a').focus().length === 1);
+                    }
+
 
                     break;
                 case Keyboard.LEFT:
                     event.preventDefault();
 
-                    // Only allow LEFT when navigating siblings
-                    // Children and subchildren
-                    if (target.parent('li').prev('li').length === 1) {
-                        found = (target.parent('li').prev('li').children('a').focus().length === 1);
-                    }
                     // Parents
-                    else if (target.parent('li').parent('ul').prev('ul').children('li:first-child').children('a').length === 1) {
+                    if (target.parent('li').parent('ul').prev('ul').children('li:first-child').children('a').length === 1) {
                         found = (target.parent('li').parent('ul').prev('ul').children('li:first-child').children('a').focus().length === 1);
                     }
+                    // Subchildren
+                    else if (target.parent('li').parent('ul').parent('li').parent('ul').attr('role') == 'undefined' ||
+                        target.parent('li').parent('ul').parent('li').parent('ul').attr('role') != 'menu') {
+                        if (target.parent('li').parent('ul').parent('li').prev('li').length === 1) {
+                            found = (target.parent('li').parent('ul').parent('li').prev('li').children('a').focus().length === 1);
+                        }
+                    }
+                    // Children
+                    else if (target.parent('li').prev('li').length === 1) {
+                        found = (target.parent('li').prev('li').children('a').focus().length === 1);
+                    }
+
 
                     break;
             }
